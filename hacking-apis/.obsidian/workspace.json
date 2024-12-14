@@ -1,0 +1,186 @@
+{
+  "main": {
+    "id": "e0d04fe8553a318a",
+    "type": "split",
+    "children": [
+      {
+        "id": "89c424f6754afa2a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8b16bb6d7508a4b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-preparing-for-api-security-testing.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "00-preparing-for-api-security-testing"
+            }
+          },
+          {
+            "id": "e6dc0f523456f4b9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01-how-web-applications-work.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01-how-web-applications-work"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c575f743f051bea7",
+    "type": "split",
+    "children": [
+      {
+        "id": "0aee82c1a518bf99",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9917dd373c63b245",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7f2e1b38b432f722",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "565e29253b218a3f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "75df4d1de07445d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "f453c0724bc96c29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bcd617c34e5dca95",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01-how-web-applications-work.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 01-how-web-applications-work"
+            }
+          },
+          {
+            "id": "083652c99d5a72e5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01-how-web-applications-work.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 01-how-web-applications-work"
+            }
+          },
+          {
+            "id": "a446aeca007065b1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "874d74e8917c1c27",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "01-how-web-applications-work.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 01-how-web-applications-work"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "e6dc0f523456f4b9",
+  "lastOpenFiles": [
+    "00-preparing-for-api-security-testing.md",
+    "01-how-web-applications-work.md"
+  ]
+}
