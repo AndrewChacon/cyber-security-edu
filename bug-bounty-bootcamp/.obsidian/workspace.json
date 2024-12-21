@@ -1,70 +1,98 @@
 {
   "main": {
-    "id": "e0d04fe8553a318a",
+    "id": "5b978d907c6888d4",
     "type": "split",
     "children": [
       {
-        "id": "89c424f6754afa2a",
+        "id": "b5db951d04296bde",
         "type": "tabs",
         "children": [
           {
-            "id": "8b16bb6d7508a4b6",
+            "id": "576af85aa0f9feaf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-preparing-for-api-security-testing.md",
+                "file": "01-picking-a-bug-bounty-program.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00-preparing-for-api-security-testing"
+              "title": "01-picking-a-bug-bounty-program"
             }
           },
           {
-            "id": "60e7d6e8f7d1c00a",
+            "id": "eafd3be92186012c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-how-web-applications-work.md",
+                "file": "02-sustaining-your-success.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01-how-web-applications-work"
+              "title": "02-sustaining-your-success"
             }
           },
           {
-            "id": "d755f5dd7937170c",
+            "id": "3129c178a590dd99",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "02-the-anatomy-of-web-apis.md",
+                "file": "03-how-the-internet-works.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02-the-anatomy-of-web-apis"
+              "title": "03-how-the-internet-works"
+            }
+          },
+          {
+            "id": "de40ed1ed866a5d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "04-environmental-stepup-and-traffic-interception.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04-environmental-stepup-and-traffic-interception"
+            }
+          },
+          {
+            "id": "17a30a30498359ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02-sustaining-your-success.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "02-sustaining-your-success"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "c575f743f051bea7",
+    "id": "363411e02a2f4a9e",
     "type": "split",
     "children": [
       {
-        "id": "0aee82c1a518bf99",
+        "id": "2cf8a0f02897e978",
         "type": "tabs",
         "children": [
           {
-            "id": "9917dd373c63b245",
+            "id": "bbea89b7157a8b29",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -76,7 +104,7 @@
             }
           },
           {
-            "id": "7f2e1b38b432f722",
+            "id": "18bd4d20624828f0",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -93,7 +121,7 @@
             }
           },
           {
-            "id": "565e29253b218a3f",
+            "id": "c6c1ec8b68aeae56",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -109,20 +137,20 @@
     "width": 200
   },
   "right": {
-    "id": "75df4d1de07445d7",
+    "id": "3d73c3d8f4c0d6eb",
     "type": "split",
     "children": [
       {
-        "id": "f453c0724bc96c29",
+        "id": "bdd648e98d7bdfc5",
         "type": "tabs",
         "children": [
           {
-            "id": "bcd617c34e5dca95",
+            "id": "98ec5e4e946e9aea",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "01-how-web-applications-work.md",
+                "file": "02-sustaining-your-success.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,25 +160,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 01-how-web-applications-work"
+              "title": "Backlinks for 02-sustaining-your-success"
             }
           },
           {
-            "id": "083652c99d5a72e5",
+            "id": "f9d87bccfd64a795",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "01-how-web-applications-work.md",
+                "file": "02-sustaining-your-success.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 01-how-web-applications-work"
+              "title": "Outgoing links from 02-sustaining-your-success"
             }
           },
           {
-            "id": "a446aeca007065b1",
+            "id": "89d5aa1dadaaa66e",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -163,15 +191,15 @@
             }
           },
           {
-            "id": "874d74e8917c1c27",
+            "id": "cecade70352e3199",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "01-how-web-applications-work.md"
+                "file": "02-sustaining-your-success.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 01-how-web-applications-work"
+              "title": "Outline of 02-sustaining-your-success"
             }
           }
         ]
@@ -191,21 +219,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "60e7d6e8f7d1c00a",
+  "active": "17a30a30498359ed",
   "lastOpenFiles": [
-    "02-the-anatomy-of-web-apis.md",
-    "01-how-web-applications-work.md",
-    "00-preparing-for-api-security-testing.md",
-    "13-evasive-techniques-and-rate-limit-testing.md",
-    "12-api-injection.md",
-    "11-exploiting-mass-assignment.md",
-    "10-exploiting-api-authorization.md",
-    "09-api-fuzzing.md",
-    "08-attacking-api-authentication.md",
-    "07-endpoint-analysis.md",
-    "06-discovering-apis.md",
-    "05-setting-up-vulnerable-api-targets.md",
-    "04-setting-up-an-api-hacking-system.md",
-    "03-api-insecurities.md"
+    "03-how-the-internet-works.md",
+    "01-picking-a-bug-bounty-program.md",
+    "05-web-hacking-reconnaissance.md",
+    "04-environmental-stepup-and-traffic-interception.md",
+    "02-sustaining-your-success.md"
   ]
 }
