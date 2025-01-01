@@ -1,0 +1,175 @@
+{
+  "main": {
+    "id": "4bdf464568b03e10",
+    "type": "split",
+    "children": [
+      {
+        "id": "ba27886721800f6f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "874cee9c55c380cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "part-02/07-pattern-matching/07-pattern-matching.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "07-pattern-matching"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8df17b43ba1be0ad",
+    "type": "split",
+    "children": [
+      {
+        "id": "870a5edc2b0aca5f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4993d410491b8ec3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "015ef5cd8161da4b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "cbb4b00edda6b066",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "right": {
+    "id": "9f9dc1c82f80c589",
+    "type": "split",
+    "children": [
+      {
+        "id": "ea6ef847aa4f4306",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ffeeef1b5f4934e0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "part-02/07-pattern-matching/07-pattern-matching.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 07-pattern-matching"
+            }
+          },
+          {
+            "id": "f79ad7e8e3b0b4c8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "part-02/07-pattern-matching/07-pattern-matching.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 07-pattern-matching"
+            }
+          },
+          {
+            "id": "3186381e1d55b43f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e55aa7e1a4de3402",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "part-02/07-pattern-matching/07-pattern-matching.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 07-pattern-matching"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "874cee9c55c380cd",
+  "lastOpenFiles": [
+    "part-02/08",
+    "part-02/07-pattern-matching/isPhoneNumber.py",
+    "part-02/07-pattern-matching",
+    "part-02/07-pattern-matching/07-pattern-matching.md",
+    "part-02",
+    "part-01"
+  ]
+}
