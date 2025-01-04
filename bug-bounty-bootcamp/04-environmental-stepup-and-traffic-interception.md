@@ -31,3 +31,30 @@ Highlights differences between two blocks of text, can be used to see how differ
 Its important to save these burp requests as they can be used in the future.
 ## Final Note
 Take good notes on new features, misconfigurations, minor bugs, and suspicious endpoints so that we can go back to them quickly and use them in the future. 
+
+## Burp Suite Training
+
+### Application Mapping
+Explore all features that can be accessed by an unauthenticated user, especially features that you yourself never use. 
+Using test product `https://juice-shop.herokuapp.com`
+Upon submitting a customer feed back review, burp intercepts a `GET` request for the captcha from the entry point `/rest/captcha`.
+
+This info reveals the captcha along with the answer to the captcha.`
+`{ "captchaId": 52, "captcha": "8*4*6", "answer": "192" }`.
+`
+if we wanted to automate making reviews we could use this end point.
+We could collect the answer to the captcha and use it on the `POST` request entry point `/api/Feedbacks/` to submit in our feedback 
+
+This is the information we are submitting:
+`{ "captchaId": 52, "captcha": "192", "comment": "test", "rating": 3 }`.
+### Parameter Tampering
+Some questions we wanna ask ourselves:
+- Can I replay this request? 
+- Can I automate this request? 
+- Can I automate the rating or author name of the comment? 
+
+A properly implemented captcha should return an error and not work upon repeating the request however we are met with a `201` response, it was successful. 
+Messing with other fields such as `rating` and setting it to `300` also results in successful responses. 
+Changing the authors name in the `comment` field also grants a successful response.
+
+### Finding Secrets
