@@ -58,3 +58,9 @@ Messing with other fields such as `rating` and setting it to `300` also results 
 Changing the authors name in the `comment` field also grants a successful response.
 
 ### Finding Secrets
+investigating the `GET` request `/rest/memories/` we find that for each image on the photo wall, the user object is included. 
+We can find data such as the userID, username, email, hashed password, etc. 
+Upon scrolling down we can find other user data for the other images.
+This is a user enumeration problem. 
+investigating the `GET` request `/api/Feedbacks/` from the about page, we can find the info for customer testimonials. 
+Upon scrolling down we should see the false rating that we created previously. 
