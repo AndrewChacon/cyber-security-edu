@@ -51,7 +51,9 @@ Passing a string representing your regular expression to re.compile() returns a 
 Now phoneNumRegex contains a Regex object.
 #### Matching Regex Objects
 Search method takes in a string and matches it to the regex. 
-If no pattern is found it returns
+If no pattern is found it returns None.
+if found it returns a Match object.
+Matched object contains a `group()` method that returns the string text of the matched object.
 #### Review Of Regular Expression Matching
 1. l
 2. l
