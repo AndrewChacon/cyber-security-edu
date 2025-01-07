@@ -56,7 +56,6 @@ Some questions we wanna ask ourselves:
 A properly implemented captcha should return an error and not work upon repeating the request however we are met with a `201` response, it was successful. 
 Messing with other fields such as `rating` and setting it to `300` also results in successful responses. 
 Changing the authors name in the `comment` field also grants a successful response.
-
 ### Finding Secrets
 investigating the `GET` request `/rest/memories/` we find that for each image on the photo wall, the user object is included. 
 We can find data such as the userID, username, email, hashed password, etc. 
@@ -64,3 +63,7 @@ Upon scrolling down we can find other user data for the other images.
 This is a user enumeration problem. 
 investigating the `GET` request `/api/Feedbacks/` from the about page, we can find the info for customer testimonials. 
 Upon scrolling down we should see the false rating that we created previously. 
+### Registration and Login Flow 
+Approaches - try username enumeration, password spraying, SQL injection ** Homework
+We want to map out the process of the registration process entirely. 
+This process will likely create many requests, we will want to highlight the requests and separate them completely from the others we've looked at previously. 
