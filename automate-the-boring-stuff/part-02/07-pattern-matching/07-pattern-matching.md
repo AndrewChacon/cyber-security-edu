@@ -68,10 +68,10 @@ We pass our desired pattern to `re.compile()` and store the resulting regex obje
 Next we use `search()` on `phoneNumberRegex` by passing it a string that we want to use to search for a match, The result is stored in the `mo` variable.
 Finally we use `mo.group()` to returned the match, if there is one. 
 #### Review Of Regular Expression Matching
-1. l
-2. l
-3. l
-4. l
+1. Import the `re` regex module
+2. Create a regex object with `re.compile()`.
+3. Pass the string you want to search in the `search()`.
+4. Call `group()` to return string of matched text. 
 
 ## More Pattern Matching With Regular Expressions
 #### Grouping With Parentheses
