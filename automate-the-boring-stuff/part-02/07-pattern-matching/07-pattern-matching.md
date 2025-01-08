@@ -54,6 +54,19 @@ Search method takes in a string and matches it to the regex.
 If no pattern is found it returns None.
 if found it returns a Match object.
 Matched object contains a `group()` method that returns the string text of the matched object.
+
+```python
+phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+mo = phoneNumRegex.search('My number is 415-555-4242')
+print('Phone number found: ' + mo.group())
+
+>>> Phone number found: 415-555-4242
+```
+
+The `mo` var is just a generic name used for `Match` objects.
+We pass our desired pattern to `re.compile()` and store the resulting regex object inside of `phoneNumberRegex`. 
+Next we use `search()` on `phoneNumberRegex` by passing it a string that we want to use to search for a match, The result is stored in the `mo` variable.
+Finally we use `mo.group()` to returned the match, if there is one. 
 #### Review Of Regular Expression Matching
 1. l
 2. l
