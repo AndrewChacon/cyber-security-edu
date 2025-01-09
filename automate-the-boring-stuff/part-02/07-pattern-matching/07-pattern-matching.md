@@ -75,6 +75,35 @@ Finally we use `mo.group()` to returned the match, if there is one.
 
 ## More Pattern Matching With Regular Expressions
 #### Grouping With Parentheses
+Adding parentheses will create in groups, useful for something like area codes.
+`regex: (\d\d\d)-(\d\d\d-\d\d\d\d)`
+We can use the `group()` method and grab matching text from specific groups.
+
+```python
+phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+mo = phoneNumRegex.search('My number is 415-555-4242.')
+mo.group(1) 
+>>> '415'
+mo.group(2)
+>>> '555-4242'
+mo.group(0)
+>>> '415-555-4242'
+mo.group()
+>>> '415-555-4242'
+```
+
+We can use the `groups()` method to return all groups
+It returns a tuple of values, we can use the multiple assignment trick to separate the groups into their own variables.
+
+```python
+print(mo.groups())
+>>> ('415', '555-4242')
+areaCode, mainNumber = mo.groups()
+print('Area Code:', areaCode)
+>>> '415'
+print('Main Number:', mainNumber)
+>>> '555-4242'
+```
 #### Matching Multiple Groups With The Pipe
 #### Optional Matching With The Question Mark
 #### Matching Zero Or More With The Star

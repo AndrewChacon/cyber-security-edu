@@ -35,3 +35,17 @@ phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
 mo = phoneNumRegex.search('My number is 415-555-4242')
 # call group method to print matched text, if match is present
 print('Phone number found: ' + mo.group())
+
+# GROUPING WITH PARENTHESES
+
+phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+mo = phoneNumRegex.search('My number is 415-555-4242.')
+print(mo.group(1)) # return group 1
+print(mo.group(2)) # return group 2
+print(mo.group(0)) # return entire group
+print(mo.group()) # return entire group
+
+print(mo.groups()) # returns all groups 
+areaCode, mainNumber = mo.groups() # multiple assignment 
+print('Area Code:', areaCode)
+print('Main Number:', mainNumber)
