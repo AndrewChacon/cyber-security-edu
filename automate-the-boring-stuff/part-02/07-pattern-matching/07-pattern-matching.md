@@ -105,6 +105,31 @@ print('Main Number:', mainNumber)
 >>> '555-4242'
 ```
 #### Matching Multiple Groups With The Pipe
+The `|` character is called a pipe, you can use it to match one or many expressions.
+Returns the first expression found.
+
+```python
+heroRegex = re.compile(r'firstname|last name')
+mo1 = heroRegex.search('firstname drew last name chacon')
+mo1.group()
+>>> 'firstname'
+mo2 = heroRegex.search('last name chacon firstname andrew')
+mo2.group()
+>>> 'last name'
+```
+
+Specify a prefix once, search terms that contain the same prefix.
+We can return the entire text of the matched term or just include its parts.
+Using the pipe and parentheses we can specify many alternative patterns.
+
+```python
+batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+mo = batRegex.search('Batmobile lost a wheel')
+print(mo.group())
+>>> 'Batmobile'
+print(mo.group(1))
+>>> 'mobile'
+```
 #### Optional Matching With The Question Mark
 #### Matching Zero Or More With The Star
 #### Matching One Or More With The Plus

@@ -27,7 +27,9 @@ for i in range(len(message)):
         print('Phone number found: ' + chunk)
 print('Done')
 
-# Matching Regex Objects
+
+
+# MATCHING REGEX OBJECTS
 
 # compile takes our desired pattern
 phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
@@ -35,6 +37,8 @@ phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
 mo = phoneNumRegex.search('My number is 415-555-4242')
 # call group method to print matched text, if match is present
 print('Phone number found: ' + mo.group())
+
+
 
 # GROUPING WITH PARENTHESES
 
@@ -49,3 +53,19 @@ print(mo.groups()) # returns all groups
 areaCode, mainNumber = mo.groups() # multiple assignment 
 print('Area Code:', areaCode)
 print('Main Number:', mainNumber)
+
+
+
+# MATCHING GROUPS WITH PIPES
+
+heroRegex = re.compile(r'firstname|last name') # pipe for multiple searches
+mo1 = heroRegex.search('firstname drew last name chacon')
+print(mo1.group()) # first occurance is found: 'firstname'
+mo2 = heroRegex.search('last name chacon firstname andrew')
+print(mo2.group()) # first occurance is found: 'last name'
+
+batRegex = re.compile(r'Bat(man|mobile|copter|bat)') # specifying the prefex
+mo = batRegex.search('Batmobile lost a wheel')
+print(mo.group()) # returns fully matched text 'Batmobile'
+print(mo.group(1)) # returns part of the matched text 'mobile'
+
