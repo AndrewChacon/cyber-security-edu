@@ -69,3 +69,22 @@ mo = batRegex.search('Batmobile lost a wheel')
 print(mo.group()) # returns fully matched text 'Batmobile'
 print(mo.group(1)) # returns part of the matched text 'mobile'
 
+
+
+# MATCHING WITH QUESTION MARK
+batRegex = re.compile(r'Bat(wo)?man')
+
+mo1 = batRegex.search('The Adventures of Batman')
+print(mo1.group())
+
+mo2 = batRegex.search('The Adventures of Batwoman')
+print(mo2.group())
+
+
+phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
+
+mo1 = phoneRegex.search('My number 415-555-4242')
+print(mo1.group())
+
+mo2 = phoneRegex.search('My number 555-4242')
+print(mo2.group())

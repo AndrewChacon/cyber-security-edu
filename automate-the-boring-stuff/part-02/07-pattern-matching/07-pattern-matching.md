@@ -131,6 +131,31 @@ print(mo.group(1))
 >>> 'mobile'
 ```
 #### Optional Matching With The Question Mark
+Patterns that you want to match optionally, the regex should find a match regardless of if its included or not.
+The `?` flag precedes the optional part of the pattern.
+
+```python
+batRegex = re.compile(r'Bat(wo)?man')
+mo1 = batRegex.search('The Adventures of Batman')
+mo1.group()
+>>> 'Batman'
+mo2 = batRegex.search('The Adventures of Batwoman')
+mo2.group()
+>>> 'Batwoman'
+```
+
+With the optional pattern, the regex will match text that has zero instances or one instance of the text. 
+This can be used to search for phone numbers that do or do not have an area code included.
+
+```python
+phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
+mo1 = phoneRegex.search('My number 415-555-4242')
+mo1.group()
+>>> '415-555-4242'
+mo2 = phoneRegex.search('My number 555-4242')
+mo2.group()
+>>> '555-4242'
+```
 #### Matching Zero Or More With The Star
 #### Matching One Or More With The Plus
 #### Matching Specific Repetitions With Curly Brackets
