@@ -67,3 +67,40 @@ Upon scrolling down we should see the false rating that we created previously.
 Approaches - try username enumeration, password spraying, SQL injection ** Homework
 We want to map out the process of the registration process entirely. 
 This process will likely create many requests, we will want to highlight the requests and separate them completely from the others we've looked at previously. 
+We have a route called `/api/SecurityQuestions/` which show us a list of json questions the app gave us as an option for a security question to select. 
+In the route `/api/Users`
+The route `/api/SecurityAnswers/` shows us our userid along with the id for the question we selected and the answer we provided for it, in the response its encrypted. 
+**HOMEWORK - play around with values in users route response**
+
+### Analyzing JWT Tokens
+`/rest/user/login/` provides us with an authentication token JWT base64 encoded
+we can copy it and use the decoder in burp to read the contents. 
+It contains our password hash which is not a good practice. 
+**DO HEAVY RESEARCH INTO JWT**
+`/api/BasketItems/` item gets added to our basket.
+It contains the productID, basketID, and quantity number. 
+the following http response contains all the info on the added product. 
+Finally it re-gets our basket info again.
+
+### Exploiting IDOR
+`GET /rest/basket/6 HTTP/1.1` what happens if I change the `6` into a `5` ???
+Upon making this change in the repeater and sending the new request, we see the info for a cart that belongs to a completely different user. 
+The user and items in the cart are different from the data from our profile. 
+**WHAT IS IDOR**
+
+### Advanced Intruder Settings
+Were going to send this to the intruder to attempt to automate and exploit this endpoint. 
+We automate from userid 0 to 10, with a step of 1.
+The program shows us 10 responses with cart data from different users. 
+Using grep extract we can specify what specific data to pull out, we now have compiled a list of userid's from this automated attack
+
+On the `/api/Products/#` route we were able to automate the first 50 products in the intruder to extract the name, description, and price of each product from the attack. 
+
+### Finding Logic Flaws
+We want to map out steps of a process, then ask ourselves if there is a way to skip steps in the logic to get to where we want with fewer restrictions. 
+
+Mapping out steps to purchasing an item:
+1. add item to basket
+2. step 2 change quantity of item in basket
+3. checkout with credit card and address 
+4. approve the purchase
