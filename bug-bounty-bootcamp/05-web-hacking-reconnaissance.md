@@ -70,11 +70,29 @@ Autonomous system numbers (ASNs) identify the owner of these networks.
 You can compare two IP addresses and determine if they belong to the same owner. 
 The `-h` flag for the `whois` command sets the WHOIS server to retrieve info from the site, translates the IPs to ASNs. 
 ### Certificate Parsing
-
+Take advantage of the Secure Socket Layer (SSL) certificates used to encrypt web traffic.
+An SSL has a subject alternative name which lets authorized users specify additional hostnames that use the same certificate.
+Find those hostnames by parsing this field.
 ### Subdomain Enumeration
+After finding as many domains as possible, find as many sub domains as you can.
+Each sub domain serves as a possible entry for attack, you find them using automation. 
+There exists many tools that help you automate for sub domains with a variety of word lists. 
+You can source good wordlists online and there exists services for it too. 
+Look for sub domains inside of sub domains as well, run enumeration tools recursively. 
 ### Service Enumeration
+Enumerate the services hosted on the machines you found. 
+You can do this by port scanning the machine with active or passive scanning.
+Active scanning sends requests to connect to the machines ports to look for any openings, you can use Nmap for this. 
+Passive scanning uses 3rd party resources like `Shodan` which is a search engine that finds machines connected to the internet. This helps attackers avoid detection. 
 ### Directory Brute-Forcing
+Brute forcing the directory, you can find things like hidden files, admin portals, database copies.
+You might even be able to take over the server directly. 
+You can learn about the structure and technology of the application by looking for files. 
 ### Spidering The Site
+Web spidering or web crawling, a process used to identify all pages on a site. 
+This type of tool starts with a website and identifies all the URLs embedded in it then tries to visit them, you can uncover many hidden entry points. 
+OWASP Zed Attack Proxy (ZAP) includes a built in web crawler, also includes a scanner, proxy, and many other features.
+
 ### Third-Party Hosting
 ### Github Recon
 ## Other Sneaky OSINT Techniques
