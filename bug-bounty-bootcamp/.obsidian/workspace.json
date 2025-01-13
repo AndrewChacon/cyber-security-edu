@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04-environmental-stepup-and-traffic-interception.md",
+                "file": "05-web-hacking-reconnaissance.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "04-environmental-stepup-and-traffic-interception"
+              "title": "05-web-hacking-reconnaissance"
             }
           }
         ]
@@ -164,8 +164,8 @@
   },
   "active": "c6a3e3b826b0ccd7",
   "lastOpenFiles": [
-    "05-web-hacking-reconnaissance.md",
     "04-environmental-stepup-and-traffic-interception.md",
+    "05-web-hacking-reconnaissance.md",
     "03-how-the-internet-works.md",
     "02-sustaining-your-success.md",
     "01-picking-a-bug-bounty-program.md"
