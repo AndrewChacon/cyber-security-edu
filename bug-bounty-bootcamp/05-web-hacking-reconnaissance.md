@@ -96,6 +96,17 @@ OWASP Zad Attack Proxy (ZAP) includes a built in web crawler, also includes a sc
 Under *TOOLS* and *Spidering* we can access the web crawler tool in OWASP ZAP
 We can enter our starting point such as `https://www.google.com`.
 On the left side of the tool we can find a tree of files and directories found on the target server, displayed in an organized format. 
+
+What is OWASP ZAP?
+it is a penetration testing tool used for detecting vulnerabilities in web applications. 
+It intercepts requests and responses between the client and the server. 
+Vulnerabilities such as SQL injection, Cross-site scripting, broken auth, and cross-site forgery.
+
+Automated Scan - provide URL for website you want to spider.
+It is discovering all files, scripts, directories, etc of the website, once we have gathered this data of directories, we can find possible areas to attack. 
+Spidering is completed, which means we have found all of the assets and resources. 
+Now we conduct an active scan, the payloads are injected into the website. 
+The alert page can show us some possible vulnerabilities it has detected with info. 
 ### Third-Party Hosting
 ### Github Recon
 ## Other Sneaky OSINT Techniques
