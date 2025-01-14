@@ -91,8 +91,11 @@ You can learn about the structure and technology of the application by looking f
 ### Spidering The Site
 Web spidering or web crawling, a process used to identify all pages on a site. 
 This type of tool starts with a website and identifies all the URLs embedded in it then tries to visit them, you can uncover many hidden entry points. 
-OWASP Zed Attack Proxy (ZAP) includes a built in web crawler, also includes a scanner, proxy, and many other features.
+OWASP Zad Attack Proxy (ZAP) includes a built in web crawler, also includes a scanner, proxy, and many other features.
 
+Under *TOOLS* and *Spidering* we can access the web crawler tool in OWASP ZAP
+We can enter our starting point such as `https://www.google.com`.
+On the left side of the tool we can find a tree of files and directories found on the target server, displayed in an organized format. 
 ### Third-Party Hosting
 ### Github Recon
 ## Other Sneaky OSINT Techniques
