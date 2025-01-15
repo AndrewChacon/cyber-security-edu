@@ -135,8 +135,17 @@ install and configure the `aswcli` tool on the AWS terminal and configure it to 
 Try listing the contents of the bucket: `aws s3 ls s3://BUCKET_NAME/`.
 copy its files to your local machine to investigate any useful files that might be present. 
 `aws s3 cp s3://BUCKET_NAME/FILE_NAME/path/to/local/directory`.
-
 ### Github Recon
+Search an organizations repos for any resources that might have been pushed by accident, sensitive data, or any information that might lead to discovering a vulnerability. 
+Start by finding Github usernames that are relevant to the target, find this by searching an organizations name or product names in the Github search bar.
+When you dive into the code look at the issues and commits sections, you can find data such as unresolved bugs, problematic code, and most recent code fixes and security patches. 
+Search for hardcoded secrets such as API keys, encryption keys, and database passwords. 
+Search for keywords such as `key, secret, password` to look for credentials. 
+You can use a tool called `KeyHacks` to check if found credentials are useable or not. 
+check if the source code deals with any important functionality such as authentication, password reset, state changing actions, or private info reads. 
+Pay attention to code that deals with user input such as HTTP request parameters, HTTP headers, HTTP request paths, database entries, read and or uploads of files, these serve as possible points of entry for attacks. 
+Pay attention to dependencies and imports being used, some might be outdated. 
+Tools such as `Gitrob` and `TruffleHog` can automate this recon process. 
 ## Other Sneaky OSINT Techniques
 ## Tech Stack Finger Printing
 ## Writing Your Own Recon Scripts
