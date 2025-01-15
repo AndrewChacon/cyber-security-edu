@@ -91,7 +91,7 @@ You can learn about the structure and technology of the application by looking f
 ### Spidering The Site
 Web spidering or web crawling, a process used to identify all pages on a site. 
 This type of tool starts with a website and identifies all the URLs embedded in it then tries to visit them, you can uncover many hidden entry points. 
-OWASP Zad Attack Proxy (ZAP) includes a built in web crawler, also includes a scanner, proxy, and many other features.
+OWASP Zap Attack Proxy (ZAP) includes a built in web crawler, also includes a scanner, proxy, and many other features.
 
 Under *TOOLS* and *Spidering* we can access the web crawler tool in OWASP ZAP
 We can enter our starting point such as `https://www.google.com`.
@@ -108,6 +108,34 @@ Spidering is completed, which means we have found all of the assets and resource
 Now we conduct an active scan, the payloads are injected into the website. 
 The alert page can show us some possible vulnerabilities it has detected with info. 
 ### Third-Party Hosting
+S3 Simple Storage, keeping resources in buckets to serve in a companies web application.
+You can find hidden endpoints, logs, credentials, user information, source code, etc. 
+Most buckets use the URL format `BUCKET.s3.amazonaws.com` or `s3.amazonaws.com/BUCKET`.
+`site:s3.amazonaws.com COMPANY_NAME`.
+`site:amazonaws.com COMPANY_NAME`.
+
+if a company uses custom URLs for its s3 buckets use more flexible search terms.
+they still often use common keywords that aren't too difficult to find. 
+
+```
+amazonaws s3 COMPANY_NAME
+amazonaws bucket COMPANY_NAME
+amazonaws COMPANY_NAME
+s3 COMPANY_NAME
+```
+
+another way is to search a companies public Github repositories for s3 URLs
+`GrayhatWarefare` is a search engine that helps you look for publicly exposed s3 buckets. 
+
+Finally, our last approach is to brute force buckets by using lists of keywords. 
+`Bucket Strem` is a program that parses certificates that belong to organizations and finds s3 buckets based on permutations of the domain names found on the certificates. 
+It will also automatically check if you can access the bucket or not, saves us time.
+
+install and configure the `aswcli` tool on the AWS terminal and configure it to work with AWS documentation, run `pip3 install awscli`.
+Try listing the contents of the bucket: `aws s3 ls s3://BUCKET_NAME/`.
+copy its files to your local machine to investigate any useful files that might be present. 
+`aws s3 cp s3://BUCKET_NAME/FILE_NAME/path/to/local/directory`.
+
 ### Github Recon
 ## Other Sneaky OSINT Techniques
 ## Tech Stack Finger Printing
