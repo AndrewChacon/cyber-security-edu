@@ -147,7 +147,27 @@ Pay attention to code that deals with user input such as HTTP request parameters
 Pay attention to dependencies and imports being used, some might be outdated. 
 Tools such as `Gitrob` and `TruffleHog` can automate this recon process. 
 ## Other Sneaky OSINT Techniques
-## Tech Stack Finger Printing
+Check the company's job postings, you can learn about their technology stack by viewing what skills they are asking for and what their current employees know. 
+Check their Linkedin, stack overflow, Quora, etc.
+Use the wayback machine to check old records of the organizations website, you might find potential entries such as links or sub domains that have since then been forgotten. 
+## Tech Stack Fingerprinting
+Fingerprinting is identifying the software brands and versions that a machine app is using. 
+You can easily find publicly disclosed vulnerabilities for a particular version of it. 
+They are referred to as Common Vulnerabilities and Exposures (CVEs).
+The simplest way to go about it is to interact with the application directly.
+Run an N-map scan on the machine wit the -sV flag to enable version detection.
+
+Then in Burp we send an HTTP request to the server to check the HTTP headers, we use this information to gain insight on the tech stack they are using. 
+We don't know what info might leak for attempting this but its worth conducting this test. 
+
+HTTP headers like `Server` and `X-Powered-By` are good indicators of technologies. 
+`Server` header reveals the software versions running, `Xpowered-By` reveals the server or scripting language used. 
+There also exists many technology specific headers for example, you can only find `X-Generator` and `X-Drupal-Cache` related to Drupal. 
+Technology specific cookies such as `PHPSESSID` gives us a clue that this is PHP related.
+Many web frameworks or other technologies will embed a signature into the code. 
+Click on `View Source Code` and search for phrases such as `powered by, built with, and running`. 
+We can see something like `Powered by: WordPress 3.3.2` written into the source code. 
+Check for technology specific file extensions, filenames, folders, and directories. 
 ## Writing Your Own Recon Scripts
 ### Understanding Bash Scripting Basics
 ### Saving Tool Output To A File
@@ -161,10 +181,3 @@ Tools such as `Gitrob` and `TruffleHog` can automate this recon process.
 ### Building Interactive Programs
 ### Using Special Variables And Characters
 ### Scheduling Automatic Scans
-## A Note On Recon APIs
-## Start Hacking
-## Tools Mentioned
-### Scope Discovery
-### OSINT
-### Tech Stack Fingerprinting
-### Automation
