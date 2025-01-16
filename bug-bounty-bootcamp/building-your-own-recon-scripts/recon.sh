@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Creating directory $1_recon."
+DOMAIN=$1
+DIRECTORY=${DOMAIN}_recon
+TODAY=$(date)
 
-mkdir $1_recon
-nmap $1 | tee $1_recon/nmap.txt
-
-echo "The results of nmap scan are stored in $1_recon/nmap.txt"
-
-python3 dirsearch.py $1 | tee $1_recon/dirsearch.txt
-
-echo "the results of dirsearch are stored in $1_recon/dirsearch.txt"
+echo "Creating directory $DIRECTORY."
+mkdir $DIRECTORY
+nmap $DOMAIN | tee $DIRECTORY/nmap.txt
+echo "The results of nmap scan are stored in $DIRECTORY/nmap.txt"
+python3 dirsearch.py $DOMAIN | tee $DIRECTORY/dirsearch.txt
+echo "the results of dirsearch are stored in $DIRECTORY/dirsearch.txt"
