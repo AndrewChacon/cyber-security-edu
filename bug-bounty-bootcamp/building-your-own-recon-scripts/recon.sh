@@ -3,10 +3,10 @@
 echo "Creating directory $1_recon."
 
 mkdir $1_recon
-nmap $1 > $1_recon/nmap
+nmap $1 | tee $1_recon/nmap.txt
 
-echo "The results of nmap scan are stored in $1_recon/nmap."
+echo "The results of nmap scan are stored in $1_recon/nmap.txt"
 
-./dirsearch.py -u $1 -e php --simple-report=$1_recon/disearch
+python3 dirsearch.py $1 | tee $1_recon/dirsearch.txt
 
-echo "the results of dirsearch are stored in $1_recon/dirsearch."
+echo "the results of dirsearch are stored in $1_recon/dirsearch.txt"
