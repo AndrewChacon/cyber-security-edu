@@ -169,6 +169,7 @@ Click on `View Source Code` and search for phrases such as `powered by, built wi
 We can see something like `Powered by: WordPress 3.3.2` written into the source code. 
 Check for technology specific file extensions, filenames, folders, and directories. 
 ## Writing Your Own Recon Scripts
+
 ### Understanding Bash Scripting Basics
 ### Saving Tool Output To A File
 ### Adding The Date Of The Scan To The Output 
