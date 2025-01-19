@@ -1,4 +1,4 @@
-#!/bin/bash
+curl -v "https://crt.sh/?q=$DOMAIN&output=json" > $DIRECTORY/crt.txt#!/bin/bash
 
 DOMAIN=$1
 DIRECTORY=${DOMAIN}_recon
@@ -19,7 +19,7 @@ dirsearch_scan()
 
 crt_scan()
 {
-  curl "https://crt.sh/?q=$DOMAIN&output=json" -o $DIRECTORY/crt.txt
+  curl -v "https://crt.sh/?q=$DOMAIN&output=json" > $DIRECTORY/crt.txt
   echo "The results of cert parsing is stored in $DIRECTORY/crt.txt"
 }
 
