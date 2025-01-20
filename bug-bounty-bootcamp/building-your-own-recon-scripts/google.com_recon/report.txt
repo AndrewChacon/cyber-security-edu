@@ -1,0 +1,31 @@
+This scan was created on Sun Jan 19 11:56:02 PM EST 2025
+Results for Nmap:
+PORT    STATE SERVICE
+53/tcp  open  domain
+80/tcp  open  http
+443/tcp open  https
+Results for Dirsearch:
+Extensions: php | HTTP method: GET | Wordlist size: 17
+Target: http://google.com
+
+[Starting:]
+Testing: http://google.com/.htaccessOLD2.php
+Testing: http://google.com/.htaccessOLD.php
+Testing: http://google.com/.svn.php
+Testing: http://google.com/.svn/all-wcprops.php
+Testing: http://google.com/.svn/entries.php
+Testing: http://google.com/.svn/prop-base/.php
+Testing: http://google.com/.svn/pristine/.php
+Testing: http://google.com/.svn/text-base/index.php.svn-base.php
+Testing: http://google.com/.svn/text-base/.php
+Testing: http://google.com/.svn/props/.php
+Testing: http://google.com/.svn/tmp/.php
+Testing: http://google.com/images.php
+Testing: http://google.com/index.php
+Testing: http://google.com/index.html.php
+Testing: http://google.com/server-status/.php
+Testing: http://google.com/server-status.php
+Testing: http://google.com/shared.php
+
+Task Completed
+Results for crt.sh:
