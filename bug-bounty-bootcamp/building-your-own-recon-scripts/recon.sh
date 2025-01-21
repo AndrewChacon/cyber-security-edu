@@ -1,4 +1,4 @@
-curl -v "https://crt.sh/?q=$DOMAIN&output=json" > $DIRECTORY/crt.txt#!/bin/bash
+#!/bin/bash
 
 DOMAIN=$1
 DIRECTORY=${DOMAIN}_recon
@@ -53,5 +53,3 @@ echo "Results for Dirsearch:" >> $DIRECTORY/report.txt
 cat $DIRECTORY/dirsearch.txt >> $DIRECTORY/report.txt
 echo "Results for crt.sh:" >> $DIRECTORY/report.txt
 jq -r ".[] | .name_value" $DIRECTORY/crt.txt >> $DIRECTORY/report.txt
-
-
