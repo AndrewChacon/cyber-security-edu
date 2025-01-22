@@ -28,28 +28,43 @@ echo "This scan was created on $TODAY."
 echo "Creating directory $DIRECTORY."
 mkdir $DIRECTORY
 
-case $2 in
-  nmap-only)
-    nmap_scan
-    ;;
-  dirsearch-only)
-    dirsearch_scan
-    ;;
-  crt-only)
-    crt_scan
-    ;;
-  *)
-    nmap_scan
-    dirsearch_scan
-    crt_scan
-    ;;
-esac
+getopts "m:" OPTION
+MODE=$OPTARG
 
-echo "Generating recon report from output files..."
-echo "This scan was created on $TODAY" > $DIRECTORY/report.txt
-echo "Results for Nmap:" >> $DIRECTORY/report.txt
-grep -E "^\s*\S+\s+\S+\s+\S+\s*$" $DIRECTORY/nmap.txt >> $DIRECTORY/report.txt
-echo "Results for Dirsearch:" >> $DIRECTORY/report.txt
-cat $DIRECTORY/dirsearch.txt >> $DIRECTORY/report.txt
-echo "Results for crt.sh:" >> $DIRECTORY/report.txt
-jq -r ".[] | .name_value" $DIRECTORY/crt.txt >> $DIRECTORY/report.txt
+for i in "${@:$OPTIND:$#}"
+do
+
+  DOMAIN=$i
+  DIRECTORY=${DOMAIN}_recon
+  echo "Creating directory $DIRECTORY."
+  mkdir $DIRECTORY
+
+  # UPDATE CASE LOGIC HERE 
+
+  case $2 in
+    nmap-only)
+      nmap_scan
+      ;;
+    dirsearch-only)
+      dirsearch_scan
+      ;;
+    crt-only)
+      crt_scan
+      ;;
+    *)
+      nmap_scan
+      dirsearch_scan
+      crt_scan
+      ;;
+
+  esac
+  # UPDATE THE LOGIC HERE 
+
+  echo "Generating recon report from output files..."
+  echo "This scan was created on $TODAY" > $DIRECTORY/report.txt
+  echo "Results for Nmap:" >> $DIRECTORY/report.txt
+  grep -E "^\s*\S+\s+\S+\s+\S+\s*$" $DIRECTORY/nmap.txt >> $DIRECTORY/report.txt
+  echo "Results for Dirsearch:" >> $DIRECTORY/report.txt
+  cat $DIRECTORY/dirsearch.txt >> $DIRECTORY/report.txt
+  echo "Results for crt.sh:" >> $DIRECTORY/report.txt
+  jq -r ".[] | .name_value" $DIRECTORY/crt.txt >> $DIRECTORY/report.txt
