@@ -41,7 +41,7 @@ do
 
   # UPDATE CASE LOGIC HERE 
 
-  case $2 in
+  case $MODE in
     nmap-only)
       nmap_scan
       ;;
@@ -62,9 +62,16 @@ do
 
   echo "Generating recon report from output files..."
   echo "This scan was created on $TODAY" > $DIRECTORY/report.txt
-  echo "Results for Nmap:" >> $DIRECTORY/report.txt
-  grep -E "^\s*\S+\s+\S+\s+\S+\s*$" $DIRECTORY/nmap.txt >> $DIRECTORY/report.txt
-  echo "Results for Dirsearch:" >> $DIRECTORY/report.txt
-  cat $DIRECTORY/dirsearch.txt >> $DIRECTORY/report.txt
-  echo "Results for crt.sh:" >> $DIRECTORY/report.txt
-  jq -r ".[] | .name_value" $DIRECTORY/crt.txt >> $DIRECTORY/report.txt
+    if [ -f $DIRECTORY/nmap ]; then
+    echo "Results for Nmap:" >> $DIRECTORY/report.txt
+    grep -E "^\s*\S+\s+\S+\s+\S+\s*$" $DIRECTORY/nmap.txt >> $DIRECTORY/report.txt
+  fi
+    if [ -f $DIRECTORY/dirsearch ]; then
+    echo "Results for Dirsearch:" >> $DIRECTORY/report.txt
+    cat $DIRECTORY/dirsearch.txt >> $DIRECTORY/report.txt
+  fi
+    if [ -f $DIRECTORY/crt ]; then
+    echo "Results for crt.sh:" >> $DIRECTORY/report.txt
+    jq -r ".[] | .name_value" $DIRECTORY/crt.txt >> $DIRECTORY/report.txt
+  fi
+  done
