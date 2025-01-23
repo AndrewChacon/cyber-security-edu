@@ -31,7 +31,7 @@ mkdir $DIRECTORY
 getopts "m:" OPTION
 MODE=$OPTARG
 
-for i in "${@:$OPTIND:$#}"
+for i in "${@:$OPTIND:$#}" # loop through all domains included
 do
 
   DOMAIN=$i
@@ -39,7 +39,7 @@ do
   echo "Creating directory $DIRECTORY."
   mkdir $DIRECTORY
 
-  case $MODE in
+  case $MODE in # switch statement for specifying scans
     nmap-only)
       nmap_scan
       ;;
@@ -56,6 +56,8 @@ do
       ;;
 
   esac
+
+# generating a master report
 
   echo "Generating recon report from output files..."
   echo "This scan was created on $TODAY" > $DIRECTORY/report.txt
