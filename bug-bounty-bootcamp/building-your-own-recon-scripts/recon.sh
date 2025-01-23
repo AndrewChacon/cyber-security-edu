@@ -39,8 +39,6 @@ do
   echo "Creating directory $DIRECTORY."
   mkdir $DIRECTORY
 
-  # UPDATE CASE LOGIC HERE 
-
   case $MODE in
     nmap-only)
       nmap_scan
@@ -58,7 +56,6 @@ do
       ;;
 
   esac
-  # UPDATE THE LOGIC HERE 
 
   echo "Generating recon report from output files..."
   echo "This scan was created on $TODAY" > $DIRECTORY/report.txt
