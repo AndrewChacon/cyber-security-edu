@@ -108,10 +108,12 @@ Submitting this code would be updated to look like this.
 ```
 
 The comment field will display as blank but its running whatever code you type between the script tags, every time a user visits this page the malicious code will execute. 
-
 Upon submitting it would become embedded on the forums pages HTML code.
-
 #### Blind XSS
+A blind XSS is a type of stored XSS vulnerability, the input is stored on the server and executed in another part of the app or is executed in a different app. 
+For example a page that lets you send a message to support staff, the input is not sanitized and its rendered on the admin page. 
+Harder to detect but just as dangerous as normal stored XSS, cant find them by looking for input reflected in the servers response. 
+Used to attack administrators, extract their data, and take over their accounts. 
 #### Reflected XSS
 #### DOM Based XSS
 #### Self XSS
