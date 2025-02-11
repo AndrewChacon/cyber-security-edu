@@ -180,6 +180,8 @@
   },
   "active": "10b73169ff37e840",
   "lastOpenFiles": [
+    "cross-site-scripting/test.html",
+    "cross-site-scripting",
     "05-web-hacking-reconnaissance.md",
     "06-cross-site-scripting.md",
     "06-cross-site-scripting",
