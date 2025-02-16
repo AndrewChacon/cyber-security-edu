@@ -172,3 +172,18 @@ Like a social media post telling you to paste a piece of code into your browser 
 Attackers embed a piece of malicious payload in the link and hid it using a URL shortener like `bit.ly`
 This involves social engineering which is not usually a thing that is accepted as a valid submission in bug bounty programs. 
 ## Prevention
+To prevent an XSS attack an application should implement two controls, Robust Input Validation and  Contextual Output Escaping And Encoding.
+A server should validate that user submitted input does not contain any dangerous characters.
+For example an input containing `<script>` tells us it contains an XSS payload. 
+In this case the server could block the request or sanitize the input by removing or escaping the special characters before its processed. 
+`Escaping` refers to the practice of encoding special characters so they end up interpreted literally instead of as special characters.
+For example if the user input is inserted into `<script>` then we know it needs to be encoded in a Javascript format.
+In `HMTL` the left and right brackets can be encoded as `&lt` and `&gt` to prevent XSS, the app should be escaping characters that have an important meaning in its specific format.
+Escaping ensures that the browser wont misinterpret these characters as code to be executed.
+This is what most modern applications do to prevent XSS.
+The app should be doing this for every piece of user input that gets rendered or accessed by a users browser. 
+To prevent DOM based XSS apps should avoid code that rewrites HTML document based on user input, needs to be a client side input validation mechanism before it touches the DOM.
+Set the `HttpOnly` flag on sensitive cookies that your site uses to prevent them from being stolen and implement the `Content-Security-Policy` HTTP response header, allows you to restrict how resources such as Javascript load your web pages. 
+## Hunting For XSS
+Look for XSS in places where user input gets rendered, for different types of XSS the process will vary but the concept remains the same: check for reflected user input.
+
