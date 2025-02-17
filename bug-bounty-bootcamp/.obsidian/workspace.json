@@ -180,10 +180,10 @@
   },
   "active": "10b73169ff37e840",
   "lastOpenFiles": [
-    "cross-site-scripting/test.html",
-    "cross-site-scripting",
     "05-web-hacking-reconnaissance.md",
     "06-cross-site-scripting.md",
+    "cross-site-scripting/test.html",
+    "cross-site-scripting",
     "06-cross-site-scripting",
     "04-environmental-stepup-and-traffic-interception.md",
     "building-your-own-recon-scripts/dirsearch.py",

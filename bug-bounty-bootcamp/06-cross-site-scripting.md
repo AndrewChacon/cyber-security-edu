@@ -186,4 +186,94 @@ To prevent DOM based XSS apps should avoid code that rewrites HTML document base
 Set the `HttpOnly` flag on sensitive cookies that your site uses to prevent them from being stolen and implement the `Content-Security-Policy` HTTP response header, allows you to restrict how resources such as Javascript load your web pages. 
 ## Hunting For XSS
 Look for XSS in places where user input gets rendered, for different types of XSS the process will vary but the concept remains the same: check for reflected user input.
+#### Step 1: Look For Input Opportunities
+First look for opportunities to submit user input to the target site.
+If your attempting stored XSS look for places where input is stored by the server and later displayed to the user which includes comment fields and user profiles.
+Types of inputs most often reflected are forms, search boxes, and sign up fields. 
+Even if you cant insert the payload in a browser you could do it directly in the request.
+Turn on your proxy's traffic interception and modify the request before forwarding it to the server.
 
+```
+POST /edit_user_age
+
+(Post request body)
+age=20
+```
+
+For example a user input that only accepts numeric values on the web page using this `age` parameter in the `POST` request. 
+
+```
+POST /edit_user_age
+
+(Post request body)
+age=<script>alert('XSS Attack');</script>
+```
+
+You can still try to submit an XSS payload by intercepting the request and changing its value. 
+Edit the values in burp on the Proxy tab, after editing forward the request to the server.
+For reflected DOM XSS look for URL parameters, fragments, or pathnames that get displayed.
+A good way to start is insert a custom string into each URL parameter and check of its returned on the page. 
+For example use a string like `XSS_BY_DREW` so you know your input was the cause of it. 
+When it shows up, inspect the pages source code, it'll give you an idea of which user input fields appear in the resulting web page. 
+#### Step 2: Insert Payloads
+You can start injecting a test XSS payload at the injection point.
+
+```html
+<script>alert('XSS By Drew');</script>
+```
+
+This is the simplest payload, upon success you should see an alert box appear.
+However this wont work on most applications, they usually implement XSS protection on their input fields. As XSS defenses become stronger so must the payloads we submit.
+###### More Than A Script Tag
+A script tag isn't the only method, you can also change the attributes found in HTML tags to run scripts if specific conditions are met.
+
+```php
+<img onload=alert('The image has been loaded') src-"example.png">
+```
+
+The `onload` attribute runs the script after the HTML element has loaded
+The `onclick` runs a script when the element is clicked
+The `onerror` runs a script if an error occurred loading the element. 
+Take advantage of these elements or add a new event attribute onto an existing tag you can create an XSS attack.
+You can also use special URL schemes like `javascript:` and `data:` to execute code in a specified URL.
+
+```php
+javascript:alert('XSS By Drew')
+```
+
+If you make a user load a `javascript:` URL you can achieve an XSS.
+`data:` URLs allow you to embed small files into a URL.
+
+```php
+data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTIGJ5IFZpY2tpZScpPC9zY3JpcHQ+"
+```
+
+This URL will generate an alert box because the data included is a base64-encoded version of the following script.
+
+```html
+<script>alert('XSS By Drew')</script>
+```
+
+Documents contained within `data:` URLs don't need to be base64-encoded.
+You can embed javascript directly into the URL as follows. 
+
+```php
+data:text/hmtl, <script>alert('XSS By Drew')</script>
+```
+
+You can use these URLs to trigger XSS when a site allows URL input from users.
+
+```php
+https://example.com/upload_profile_pic?url=IMAGE_URL
+```
+
+A site might allow a user to load an image by using a URL and use it as their profile picture. The app will then render a preview on the page by inserting the URL into an `<img>` tag. If you insert Javascript or data URL you can trick the victims browser to load your XSS.
+
+```html
+<img src="IMAGE_URL" />
+```
+
+There is more information on ways to execute JS code to bypass XSS protection, different browsers also support different tags and event handlers.
+Always test by using multiple XSS browsers when hunting for XSS.
+###### Closing Out HTML Tags
+#### Step 3
