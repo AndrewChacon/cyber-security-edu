@@ -392,12 +392,21 @@ Each `<script>` tag cuts another `<script>` tag in half, the filter wont recogni
 
 check out OWASP’s XSS filter evasion cheat sheet
 ## Escalating The Attack
+The type of XSS determines the number of users who could be affected.
+Stored XSS on a public forum could attack anyone who visits the forum.
+Reflected or DOM XSS can only affect  users who click malicious links.
+Self XSS requires a lot of user interaction and social engineering.
+Make sure to assess the full impact of the particular XSS to include in your vulnerability report. 
 ## Automating XSS Hunting
+Can be a very time consuming process but there are tools and resources we can use to improve our work.
+Use browser developer tools to look for syntax errors  and troubleshoot payloads. 
+Use proxy's search tool to search server responses for reflected input.
+If the program your targeting allows for automatic testing you can use Burp Intruder or other fuzzers to conduct an automatic XSS scan on the target. 
 ## Finding Your First XSS
-1. a
-2. a
-3. a
-4. a
-5. a
-6. a
-7. a
+1. Look for where user input is stored and used to construct a web page, test its input field for stored XSS. If input in a URL is reflected back on the resulting page test for reflected and DOM XSS. 
+2. Insert payloads into the input field, from lists online, polyglot payload or generic test string. 
+3. Check if the browser runs the code to confirm the impact or see if you can make the browser generate a request to your server. 
+4. If your payloads don't execute try bypassing XSS protections. 
+5. Automate the XSS hunter process. 
+6. Consider the impact of the XSS thats been found, can you escalate the attack?
+7. Send your XSS report to the bug bounty program. 
