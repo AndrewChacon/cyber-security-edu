@@ -403,10 +403,11 @@ Use browser developer tools to look for syntax errors  and troubleshoot payloads
 Use proxy's search tool to search server responses for reflected input.
 If the program your targeting allows for automatic testing you can use Burp Intruder or other fuzzers to conduct an automatic XSS scan on the target. 
 ## Finding Your First XSS
-1. Look for where user input is stored and used to construct a web page, test its input field for stored XSS. If input in a URL is reflected back on the resulting page test for reflected and DOM XSS. 
+
+1. Look for where user input is stored and used to construct a web page, test its input field for stored XSS. If input in a URL is reflected back on the resulting page, test for reflected and DOM XSS. 
 2. Insert payloads into the input field, from lists online, polyglot payload or generic test string. 
 3. Check if the browser runs the code to confirm the impact or see if you can make the browser generate a request to your server. 
 4. If your payloads don't execute try bypassing XSS protections. 
-5. Automate the XSS hunter process. 
+5. Automate the XSS hunting process. 
 6. Consider the impact of the XSS thats been found, can you escalate the attack?
 7. Send your XSS report to the bug bounty program. 
